@@ -1,2 +1,4 @@
-To start
-```npm run dev```
+## To start
+```shell
+npm run dev
+```
