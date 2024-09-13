@@ -5,8 +5,7 @@ class Mayar {
         this.client = axios.create({
             baseURL,
             headers: {
-                Authorization: `Bearer ${key}`,
-                Cookie: `connect.sid=${sid}`
+                Authorization: `Bearer ${key}`
             },
             maxBodyLength: Infinity,
         })
@@ -19,11 +18,9 @@ class Mayar {
             return res.data;
         } catch (error) {
             const message = axios.isAxiosError(error) ? error.toJSON() : error;
-            console.error(message);
 
-            return message;
+            return { error: message};
         }
-
     }
 }
 
