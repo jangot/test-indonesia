@@ -8,12 +8,16 @@ router.get('/', (req, res, next) => {
     res.render('prices', { title: 'Prices' });
 });
 
-router.get('/link', async (req, res, next) => {
+router.post('/link', async (req, res, next) => {
     const service = new Mayar(config.mayar.baseUrl, config.mayar.key)
-    // const invoice = await service.getInvoice();
-    const link = await service.getLink();
 
-    res.send({ link });
+    console.log('req.body', req)
+    if (!req.body['name']) {
+        res.send({ error: 'Required parameters' });
+    } else {
+        const link = await service.getLink(req.body);
+        res.send(link);
+    }
 });
 
 module.exports = router;

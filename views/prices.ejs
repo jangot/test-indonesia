@@ -4,9 +4,41 @@
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <script src="/javascripts/prices.js"></script>
+    <style>
+      .container {
+        display: flex;
+      }
+      .container #prices-list {
+        width: 200px;
+        border: 1px antiquewhite solid;
+        padding: 20px;
+      }
+      #user-information label {
+        display: block;
+        margin: 20px;
+      }
+    </style>
   </head>
   <body>
     <h1><%= title %></h1>
-    <ul id="prices-list"></ul>
+    <div class="container">
+      <ul id="prices-list"></ul>
+      <div id="user-information">
+        <label>
+          <input type="text" id="name" name="name" value="Pavel">
+          name
+        </label>
+        <label>
+          <input type="text" id="email" name="email" value="pavp+mayar-1@skl.vc">
+          email
+        </label>
+        <label>
+          <input type="text" id="mobile" name="mobile" value="+972554445566">
+          mobile
+        </label>
+      </div>
+      <div id="price-link"></div>
+    </div>
+
   </body>
 </html>

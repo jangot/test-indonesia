@@ -24,17 +24,19 @@ class Mayar {
         }
     }
 
-    async getLink() {
+    async getLink(body) {
         try {
             let data = JSON.stringify({
-                "name": "andre",
-                "email": "alikusnadie@gmail.com",
-                "amount": 170000,
-                "mobile": "085797522261",
+                "name": body.name,
+                "email": body.email,
+                "amount": body.amount,
+                "mobile": body.mobile,
                 "redirectUrl": "https://kelaskami.com/nexst23",
                 "description": "kemana ini menjadi a",
                 "expiredAt": "2024-02-29T09:41:09.401Z"
             });
+            console.log(data)
+            // const data = JSON.stringify(body);
             const res = await this.client.post('/payment/create', data);
 
             return res.data;
