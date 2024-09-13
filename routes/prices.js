@@ -9,10 +9,11 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/link', async (req, res, next) => {
-    const service = new Mayar(config.mayar.baseUrl, config.mayar.key, config.mayar.sid)
-    const invoice = await service.getInvoice();
+    const service = new Mayar(config.mayar.baseUrl, config.mayar.key)
+    // const invoice = await service.getInvoice();
+    const link = await service.getLink();
 
-    res.send({ invoice });
+    res.send({ link });
 });
 
 module.exports = router;
